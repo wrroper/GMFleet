@@ -67,7 +67,7 @@
       <file leaf-file-name="server.js" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/server.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="35" column="283" selection-start="2143" selection-end="2143" vertical-scroll-proportion="0.16317016">
+            <state line="40" column="17" selection-start="2295" selection-end="2295" vertical-scroll-proportion="0.26223776">
               <folding />
             </state>
           </provider>
@@ -360,7 +360,7 @@
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/server.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="35" column="283" selection-start="2143" selection-end="2143" vertical-scroll-proportion="0.16317016">
+        <state line="40" column="17" selection-start="2295" selection-end="2295" vertical-scroll-proportion="0.26223776">
           <folding />
         </state>
       </provider>
