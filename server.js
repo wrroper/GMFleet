@@ -34,8 +34,28 @@ app.post('/posttrip', function(req, res) {
 
     if(item) {
         var insert = "INSERT INTO Trips (CarId, TripDate, Odometer, OilLife, LFTirePressure, RFTirePressure, LRTirePressure, RRTirePressure, Fuel, Latitude, Longitude, TireCondition, TireComment, GlassCondition, GlassComment, BodyCondition, BodyComment, TripComment, UserId) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ? ,? ,?, ?)";
+        var qry = "SELECT * FROM Cars WHERE VIN = ?";
+        var carid = 0;
 
-        sql.query(conn_str, insert, [item.carid, item.tripdate, item.odometer, item.engine_oil_life, item.tire_left_front_pressure, item.tire_right_front_pressure,
+        sql.query(conn_str, qry, [item.vin], function (err, results) {
+            if(err) {
+
+                res.send("Got Error " + err);
+                res.end("");
+                return;
+            }
+
+            if(results.length > 0)
+            {
+                carid = results[0].ID;
+            }
+            else
+            {
+                carid = 1;
+            }
+        });
+
+        sql.query(conn_str, insert, [carid, item.tripdate, item.odometer, item.engine_oil_life, item.tire_left_front_pressure, item.tire_right_front_pressure,
                                      item.tire_left_rear_pressure, item.tire_right_rear_pressure, item.fuel_level, item.gps_lat, item.gps_long, item.tire_condition,
                                      item.tire_comment, item.glass_condition, item.glass_comment, item.body_condition, item.body_comment, item.trip_comment, item.user_id], function(err) {
             if(err) {
@@ -59,6 +79,26 @@ app.get('/user/:pin', function(req, res) {
         var response = "[";
         for (var i = 0; i < results.length; i++) {
             response += "{ user_id : '" + results[i].Id + "', pin : '" + results[i].Pin + "', last_name : '" + results[i].LastName + "', first_name : '" + results[i].FirstName + "'}";
+        }
+        response += "]";
+        res.send(response);
+        res.end("");
+    });
+});
+
+app.get('/cars', function(req, res) {
+    var qry = "SELECT * FROM Cars";
+
+    sql.query(conn_str, qry, function (err, results) {
+        if(err) {
+
+            res.send("Got Error " + err);
+            res.end("");
+            return;
+        }
+        var response = "[";
+        for (var i = 0; i < results.length; i++) {
+            response += "{ car_id : '" + results[i].Id + "', vin : '" + results[i].VIN + "', make : '" + results[i].Make + "', Model : '" + results[i].Model + "'}";
         }
         response += "]";
         res.send(response);
