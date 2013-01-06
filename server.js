@@ -2,10 +2,15 @@ var sql = require('msnodesql');
 var conn_str = "Driver={SQL Server Native Client 10.0};Server=tcp:mj7i58or45.database.windows.net,1433;Database=gmfleet;Uid=gmfleet@mj7i58or45;Pwd=Fleet1234;Encrypt=yes;Connection Timeout=30;";
 
 var express = require('express');
+var staticdir = express.static(__dirname + '/att')  ;
 var app = express();
-app.use(express.static('/att'));
+//app.use(express.static('/att', __dirname + '/att'));
 app.use(express.bodyParser());
 app.use(app.router);
+
+app.get('/att/:file', function(req, res, next) {
+    staticdir(req, res, next);
+});
 
 app.get('/trips', function(req, res) {
 	sql.query(conn_str, "SELECT * FROM Trips", function (err, results) {
@@ -111,11 +116,11 @@ app.get('/user/:pin', function(req, res) {
             res.end("");
             return;
         }
-        var response = "[";
+        var response = "";
         for (var i = 0; i < results.length; i++) {
             response += "{ user_id : '" + results[i].Id + "', pin : '" + results[i].Pin + "', last_name : '" + results[i].LastName + "', first_name : '" + results[i].FirstName + "'}";
         }
-        response += "]";
+        response += "";
         res.send(response);
         res.end("");
     });
