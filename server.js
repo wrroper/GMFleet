@@ -37,7 +37,7 @@ app.post('/posttrip', function(req, res) {
         var qry = "SELECT * FROM Cars WHERE VIN = ?";
         var carid = 0;
 
-        sql.query(conn_str, qry, [item.vin], function (err, results) {
+        sql.query(conn_str, qry, [item.vin_2_9], function (err, results) {
             if(err) {
 
                 res.send("Got Error " + err);
