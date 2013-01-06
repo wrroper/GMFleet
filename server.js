@@ -47,9 +47,9 @@ app.post('/posttrip', function(req, res) {
 });
 
 app.get('/user/:pin', function(req, res) {
-    var select = "SELECT * FROM Users WHERE Pin = ?";
+    var qry = "SELECT * FROM Users WHERE Pin = ?";
 
-    sql.query(conn_str, select, req.params.pin, function (err, results) {
+    sql.query(conn_str, qry, req.params.pin, function (err, results) {
         if(err) {
             res.writeHead(200, { 'Content-Type' : 'text/plain' } );
             res.write("Got Error " + err);
