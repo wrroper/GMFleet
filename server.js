@@ -14,11 +14,11 @@ app.get('/trips', function(req, res) {
 			res.end("");
 			return;
 		}
-		res.send("[");
+		res.write("[");
 		for (var i = 0; i < results.length; i++) {
-			res.send("{ ID : '" + results[i].ID + "', TripDate : '" + results[i].TripDate) + "'}";
+			res.write("{ ID : '" + results[i].ID + "', TripDate : '" + results[i].TripDate) + "'}";
 		}
-		res.send("]");
+		res.write("]");
 		res.end();
 	});
 });
