@@ -23,7 +23,7 @@ function init() {
 	
 	// BUTTON AND INPUT WIDGETS
 	txtUserID = new gm.widgets.TextField({
-		value:"1",
+		value:"1234",
 		parentElement: document.getElementById('user-id')
 	});
 	txtUserID.render(); // associated html element id=phone-input
