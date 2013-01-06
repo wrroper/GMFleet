@@ -29,7 +29,7 @@ app.get('/trips', function(req, res) {
 	});
 });
 
-app.post('/posttrip', function(req, res) {
+app.get('/posttrip', function(req, res) {
     var item = req.body.item;
 
     res.writeHead(200, { 'Content-Type' : 'text/plain' } );
