@@ -5,7 +5,6 @@ function init() {
 	var url = document.location.href, get;
 	get = url.split('?');
 	get = get[1].split('&');
-	//document.getElementById("text").innerHTML = get;
 	var jsonObject = "";
 	gm.info.getVehicleData(function(args) {
 		jsonObject = args;
@@ -53,7 +52,7 @@ function init() {
 	var nextPage = function(){
 		jsonObject.trip_comment = commentBox.getValue();
 		jsonObject.trip_date = "1/6/2013";
-		//if (!jsonObject.engine_oil_life)
+		if (!jsonObject.engine_oil_life)
 			jsonObject.engine_oil_life = 50;
 		
 		$.ajax({
@@ -63,25 +62,11 @@ function init() {
 		    data: jsonObject,
 		    dataType: 'json',
 		    success: function(responseData, textStatus, jqXHR) {
-		    	//self.location="main.html?user_id=" + txtUserID.getValue();
+		    	
 		    },
-//		    error: function (responseData, textStatus, errorThrown) {
-//		        alert('POST failed.');
-//		        document.getElementById("text").innerHTML = JSON.stringify(responseData);
-//		    }
+
 		});
-//		var xhr = new XMLHttpRequest();
-//		
-//		xhr.onreadystatechange = function(){
-//			if (xhr.readyState == 4 && xhr.status == 200){
-//				var res = xhr.responseText;
-//				document.getElementById("text").innerHTML = res;
-//			}
-//		};
-//		xhr.open("POST", "gmfleet.azurewebsites.net/posttrip", true);
-//		//xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded; charset=UTF-8");
-//		xhr.send(jsonObject);
-		
+		self.location="finalStats.html";
 	};
 	
 	nextBtn = new gm.widgets.Button({
@@ -91,12 +76,6 @@ function init() {
 	});
 	nextBtn.render(); 
 	
-	
-	
-	
-	
-	
-	//document.getElementById("text").innerHTML = JSON.stringify(jsonObject);
 	
 	
 }
