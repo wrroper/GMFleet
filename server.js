@@ -3,8 +3,6 @@ var conn_str = "Driver={SQL Server Native Client 10.0};Server=tcp:mj7i58or45.dat
 
 var express = require('express');
 var app = express();
-var port = process.env.PORT || 3000;
-
 
 app.get('/trips', function(req, res) {
 	sql.query(conn_str, "SELECT * FROM Trips", function (err, results) {
@@ -14,13 +12,14 @@ app.get('/trips', function(req, res) {
 			res.end("");
 			return;
 		}
-		var response = "[2";
+		var response = "[";
 		for (var i = 0; i < results.length; i++) {
 			response += "{ ID : '" + results[i].ID + "', TripDate : '" + results[i].TripDate) + "'}";
 		}
 		response += "]";
 		res.send(response);
+		res.end();
 	});
 });
 
-app.listen(port);
+app.listen(process.env.PORT || 3000);
