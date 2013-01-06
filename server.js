@@ -116,11 +116,11 @@ app.get('/user/:pin', function(req, res) {
             res.end("");
             return;
         }
-        var response = "[";
+        var response = "";
         for (var i = 0; i < results.length; i++) {
             response += "{ user_id : '" + results[i].Id + "', pin : '" + results[i].Pin + "', last_name : '" + results[i].LastName + "', first_name : '" + results[i].FirstName + "'}";
         }
-        response += "]";
+        response += "";
         res.send(response);
         res.end("");
     });
