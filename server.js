@@ -164,11 +164,20 @@ app.get('/cars', function(req, res) {
             return;
         }
         var response = "[";
+        var resArray = [];
+
         for (var i = 0; i < results.length; i++) {
-            response += "{ car_id : '" + results[i].Id + "', vin : '" + results[i].VIN + "', make : '" + results[i].Make + "', Model : '" + results[i].Model + "'}";
+            var myObject = new Object();
+
+            myObject.car_id = results[i].Id;
+            myObject.vin = results[i].VIN;
+            myObject.make = results[i].Make;
+            myObject.model = results[i].Model;
+
+            resArray.push(myObject);
         }
         response += "]";
-        res.send(response);
+        res.send(JSON.stringify(resArray));
         res.end("");
     });
 });
