@@ -8,7 +8,7 @@ var app = express();
 app.use(express.bodyParser());
 app.use(app.router);
 
-app.get('/att', function(req, res, next) {
+app.get('/att/:file', function(req, res, next) {
     staticdir(req, res, next);
 });
 
