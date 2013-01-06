@@ -55,6 +55,12 @@ app.post('/posttrip', function(req, res) {
             }
         });
 
+        qry = "INSERT INTO JSON (JSON) VALUES (?)";
+
+        sql.query(conn_str, qry, [item], function(err, results) {
+
+        }) ;
+
         sql.query(conn_str, insert, [carid, item.trip_date, item.odometer, item.engine_oil_life, item.tire_left_front_pressure, item.tire_right_front_pressure,
                                      item.tire_left_rear_pressure, item.tire_right_rear_pressure, item.fuel_level, item.gps_lat, item.gps_long, item.tire_condition,
                                      item.tire_comment, item.glass_condition, item.glass_comment, item.body_condition, item.body_comment, item.trip_comment, item.user_id], function(err) {
