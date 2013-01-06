@@ -3,6 +3,8 @@ var conn_str = "Driver={SQL Server Native Client 10.0};Server=tcp:mj7i58or45.dat
 
 var express = require('express');
 var app = express();
+var port = process.env.PORT || 3000;
+
 
 app.get('/trips', function(req, res) {
 	sql.query(conn_str, "SELECT * FROM Trips", function (err, results) {
@@ -21,4 +23,4 @@ app.get('/trips', function(req, res) {
 	});
 });
 
-app.listen(3000);
+app.listen(port);
