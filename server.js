@@ -34,8 +34,16 @@ app.post('/posttrip', function(req, res) {
 
     if(item) {
         var insert = "INSERT INTO Trips (CarId, TripDate, Odometer, OilLife, LFTirePressure, RFTirePressure, LRTirePressure, RRTirePressure, Fuel, Latitude, Longitude, TireCondition, TireComment, GlassCondition, GlassComment, BodyCondition, BodyComment, TripComment, UserId) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ? ,? ,?, ?)";
-        var qry = "SELECT * FROM Cars WHERE VIN = ?";
+        var qry;
         var carid = 0;
+
+        qry = "INSERT INTO JSON (JSON) VALUES (?)";
+
+        sql.query(conn_str, qry, [item], function(err, results) {
+
+        }) ;
+
+        qry = "SELECT * FROM Cars WHERE VIN = ?"
 
         sql.query(conn_str, qry, [item.vin_2_9], function (err, results) {
             if(err) {
@@ -54,12 +62,6 @@ app.post('/posttrip', function(req, res) {
                 carid = 1;
             }
         });
-
-        qry = "INSERT INTO JSON (JSON) VALUES (?)";
-
-        sql.query(conn_str, qry, [item], function(err, results) {
-
-        }) ;
 
         sql.query(conn_str, insert, [carid, item.trip_date, item.odometer, item.engine_oil_life, item.tire_left_front_pressure, item.tire_right_front_pressure,
                                      item.tire_left_rear_pressure, item.tire_right_rear_pressure, item.fuel_level, item.gps_lat, item.gps_long, item.tire_condition,
