@@ -78,7 +78,7 @@ app.post('/posttrip', function(req, res) {
     }
     else
     {
-        var qry = "INSERT INTO JSON (JSON) VALUES ('NO JSON')";
+        var qry = "INSERT INTO JSON (JSON) VALUES ('NO JSON " + JSON.stringify(item) + "')";
 
         sql.query(conn_str, qry, function(err, results) {
 
