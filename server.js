@@ -47,11 +47,11 @@ app.post('/posttrip', function(req, res) {
 });
 
 app.get('/user/:pin', function(req, res) {
-    var select = "SELECT * FROM Users WHERE ID = ?";
+    var select = "SELECT * FROM Users WHERE Pin = ?";
 
     sql.query(conn_str, select, req.params.pin, function (err, results) {
         if(err) {
-            res.writeHead(500, { 'Content-Type' : 'text/plain' } );
+            res.writeHead(200, { 'Content-Type' : 'text/plain' } );
             res.write("Got Error " + err);
             res.end("");
             return;
