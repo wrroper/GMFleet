@@ -51,8 +51,8 @@ app.get('/user/:pin', function(req, res) {
 
     sql.query(conn_str, qry, req.params.pin, function (err, results) {
         if(err) {
-            res.writeHead(200, { 'Content-Type' : 'text/plain' } );
-            res.write("Got Error " + err);
+
+            res.send("Got Error " + err);
             res.end("");
             return;
         }
