@@ -10,7 +10,6 @@ function init() {
 		self.location="walkAround1.html?" + get[1];
 	};
 	
-	
 	// GET JSON AND SET TABLE FIELDS FROM JSON
 	var vehicleData = "";
 	gm.info.getVehicleData(function(args) {
@@ -22,6 +21,7 @@ function init() {
 	document.getElementById('date').innerHTML = currentDate.getMonth()+1 + "/" + // set month
 		currentDate.getDate() + "/" + // set day
 		currentDate.getFullYear(); // set year
+	
 	
 	//set odometer
 	document.getElementById('odometer').innerHTML = vehicleData.odometer + " km";

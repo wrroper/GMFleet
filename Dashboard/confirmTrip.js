@@ -5,34 +5,36 @@ function init() {
 	var url = document.location.href, get;
 	get = url.split('?');
 	get = get[1].split('&');
-	
+	//document.getElementById("text").innerHTML = get;
 	var jsonObject = "";
 	gm.info.getVehicleData(function(args) {
 		jsonObject = args;
 	});
-	for(var i=0; i < 7; ++i) { 
+	for(var i=0; i < 8; ++i) { 
 		var key_val = get[i].split('=');
 		switch (i)
 		{
 		case 0:
-			jsonObject.user_id = parseInt(key_val[1], 10);
 			break;
 		case 1:
-			jsonObject.tire_condition = parseInt(key_val[1], 10);
+			jsonObject.user_id = parseInt(key_val[1], 10);
 			break;
 		case 2:
-			jsonObject.tire_comment = key_val[1];
+			jsonObject.tire_condition = parseInt(key_val[1], 10);
 			break;
 		case 3:
-			jsonObject.glass_condition = parseInt(key_val[1], 10);
+			jsonObject.tire_comment = key_val[1];
 			break;
 		case 4:
-			jsonObject.glass_comment = key_val[1];
+			jsonObject.glass_condition = parseInt(key_val[1], 10);
 			break;
 		case 5:
-			jsonObject.body_condition = parseInt(key_val[1],10);
+			jsonObject.glass_comment = key_val[1];
 			break;
 		case 6:
+			jsonObject.body_condition = parseInt(key_val[1],10);
+			break;
+		case 7:
 			jsonObject.body_comment = key_val[1];
 			break;
 		}
@@ -61,13 +63,12 @@ function init() {
 		    data: jsonObject,
 		    dataType: 'json',
 		    success: function(responseData, textStatus, jqXHR) {
-		        //var value = responseData.someKey;
-		        document.getElementById("text").innerHTML = JSON.stringify(responseData);
+		    	//self.location="main.html?user_id=" + txtUserID.getValue();
 		    },
-		    error: function (responseData, textStatus, errorThrown) {
-		        alert('POST failed.');
-		        document.getElementById("text").innerHTML = JSON.stringify(responseData);
-		    }
+//		    error: function (responseData, textStatus, errorThrown) {
+//		        alert('POST failed.');
+//		        document.getElementById("text").innerHTML = JSON.stringify(responseData);
+//		    }
 		});
 //		var xhr = new XMLHttpRequest();
 //		
@@ -95,7 +96,7 @@ function init() {
 	
 	
 	
-	document.getElementById("text").innerHTML = JSON.stringify(jsonObject);
+	//document.getElementById("text").innerHTML = JSON.stringify(jsonObject);
 	
 	
 }

@@ -5,7 +5,20 @@ function init() {
 	
 	// FUNCTION CALLS
 	var nextPage = function() {
-		self.location="main.html?user_id=" + txtUserID.getValue();
+		$.ajax({
+		    type: 'GET',
+		    url: "http://gmfleet.azurewebsites.net/user/" + txtUserID.getValue(),
+		    crossDomain: true,
+		    success: function(responseData) {
+		    	var myObject = JSON.parse(responseData);
+		    	self.location="main.html?pin=" + txtUserID.getValue() + "&user_id=" + myObject.user_id;
+		    	//document.getElementById("signin").innerHTML = "main.html?pin=" + txtUserID.getValue() + "&user_id=" + myObject.user_id;
+		    },
+		    error: function (responseData, textStatus, errorThrown) {
+		        alert('GET failed.' + responseData);
+		    }
+		});
+		//self.location="main.html?user_id=" + txtUserID.getValue();
 	};
 	
 	// BUTTON AND INPUT WIDGETS
