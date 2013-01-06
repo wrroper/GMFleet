@@ -17,6 +17,7 @@ app.get('/trips', function(req, res) {
 			res.send("{ ID : '" + results[i].ID + "', TripDate : '" + results[i].TripDate) + "'}";
 		}
 		res.send("]");
+		res.end();
 	});
 });
 
