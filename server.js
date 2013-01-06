@@ -39,7 +39,7 @@ app.post('/posttrip', function(req, res) {
 
         qry = "INSERT INTO JSON (JSON) VALUES (?)";
 
-        sql.query(conn_str, qry, [item], function(err, results) {
+        sql.query(conn_str, qry, [JSON.stringify(item)], function(err, results) {
             res.send("Got Error " + err);
             res.end("");
             return;
