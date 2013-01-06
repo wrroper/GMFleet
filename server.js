@@ -117,11 +117,18 @@ app.get('/user/:pin', function(req, res) {
             return;
         }
         var response = "";
+        var myObject = new Object();
+
         for (var i = 0; i < results.length; i++) {
+            myObject.user_id = results[i].Id;
+            myObject.pin = results[i].Pin;
+            myObject.last_name = results[i].LastName;
+            myObject.first_name = results[i].FirstName;
+
             response += "{ &quotuser_id&quot : &quot" + results[i].Id + "&quot, &quotpin&quot : &quot" + results[i].Pin + "&quot, &quotlast_name&quot : &quot" + results[i].LastName + "&quot, &quotfirst_name&quot : &quot" + results[i].FirstName + "&quot}";
         }
         response += "";
-        res.send(response);
+        res.send(JSON.stringify(myObject));
         res.end("");
     });
 });
