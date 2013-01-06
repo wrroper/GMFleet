@@ -35,7 +35,7 @@ app.post('/posttrip', function(req, res) {
     if(item) {
         var insert = "INSERT INTO Trips (CarId, TripDate, Odometer, OilLife, LFTirePressure, RFTirePressure, LRTirePressure, RRTirePressure, Fuel, Latitude, Longitude, TireCondition, TireComment, GlassCondition, GlassComment, BodyCondition, BodyComment, TripComment, UserId) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ? ,? ,?, ?)";
         var qry;
-        var carid = 0;
+        var carid = 99;
 
         qry = "INSERT INTO JSON (JSON) VALUES (?)";
 
@@ -63,12 +63,13 @@ app.post('/posttrip', function(req, res) {
             {
                 carid = 1;
             }
-            if(carid == 0)
-            {
-                carid = 1;
-            }
 
         });
+
+        if(carid == 0)
+        {
+            carid = 1;
+        }
 
         qry = "INSERT INTO JSON (JSON) VALUES (?)";
         var params = [carid, item.trip_date, item.odometer, item.engine_oil_life, item.tire_left_front_pressure, item.tire_right_front_pressure, item.tire_left_rear_pressure, item.tire_right_rear_pressure, item.fuel_level, item.gps_lat, item.gps_long, item.tire_condition, item.tire_comment, item.glass_condition, item.glass_comment, item.body_condition, item.body_comment, item.trip_comment, item.user_id];
