@@ -14,13 +14,11 @@ app.get('/trips', function(req, res) {
 			res.end("");
 			return;
 		}
-		res.writeHead(200, { 'Content-Type' : 'text/plain' });
-		res.write("[");
+		var response = "[";
 		for (var i = 0; i < results.length; i++) {
-			res.write("{ ID : '" + results[i].ID + "', TripDate : '" + results[i].TripDate) + "'}";
+			response += "{ ID : '" + results[i].ID + "', TripDate : '" + results[i].TripDate) + "'}";
 		}
-		res.write("]");
-		res.end();
+		res.send(response + "]");
 	});
 });
 
