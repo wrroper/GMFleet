@@ -14,7 +14,7 @@ app.get('/trips', function(req, res) {
 		}
 		var response = "[";
 		for (var i = 0; i < results.length; i++) {
-			response += "{ ID : '" + results[i].ID + "', TripDate : '" + results[i].TripDate) + "'}";
+			response += "{ ID : '" + results[i].ID + "', TripDate : '" + results[i].TripDate + "'}";
 		}
 		response += "]";
 		res.send(response);
