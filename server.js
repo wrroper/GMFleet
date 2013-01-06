@@ -74,7 +74,7 @@ app.post('/posttrip', function(req, res) {
             return;
         }) ;
 
-        sql.query(conn_str, insert, , function(err) {
+        sql.query(conn_str, insert, params, function(err) {
             if(err) {
                 res.send("Got Error 3 " + err);
                 res.end("");
