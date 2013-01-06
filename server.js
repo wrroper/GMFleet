@@ -40,7 +40,7 @@ app.post('/posttrip', function(req, res) {
         qry = "INSERT INTO JSON (JSON) VALUES (?)";
 
         sql.query(conn_str, qry, [JSON.stringify(item)], function(err, results) {
-            res.send("Got Error " + err);
+            res.send("Got Error 1 " + err);
             res.end("");
             return;
         }) ;
@@ -50,7 +50,7 @@ app.post('/posttrip', function(req, res) {
         sql.query(conn_str, qry, [item.vin_2_9], function (err, results) {
             if(err) {
 
-                res.send("Got Error " + err);
+                res.send("Got Error 2 " + err);
                 res.end("");
                 return;
             }
@@ -69,7 +69,7 @@ app.post('/posttrip', function(req, res) {
                                      item.tire_left_rear_pressure, item.tire_right_rear_pressure, item.fuel_level, item.gps_lat, item.gps_long, item.tire_condition,
                                      item.tire_comment, item.glass_condition, item.glass_comment, item.body_condition, item.body_comment, item.trip_comment, item.user_id], function(err) {
             if(err) {
-                res.send("Got Error " + err);
+                res.send("Got Error 3 " + err);
                 res.end("");
                 return;
             }
