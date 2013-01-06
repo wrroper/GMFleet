@@ -1,0 +1,4 @@
+[17-Nov-2012 15:58:07] PHP Warning:  include(/config.inc.php) [<a href='function.include'>function.include</a>]: failed to open stream: No such file or directory in /home/roycelea/public_html/api/latt/useraccounts.php on line 3
+[17-Nov-2012 15:58:07] PHP Warning:  include() [<a href='function.include'>function.include</a>]: Failed opening '/config.inc.php' for inclusion (include_path='.:/usr/lib/php:/usr/local/lib/php') in /home/roycelea/public_html/api/latt/useraccounts.php on line 3
+[17-Nov-2012 15:58:07] PHP Warning:  Cannot modify header information - headers already sent by (output started at /home/roycelea/public_html/api/latt/useraccounts.php:3) in /home/roycelea/public_html/api/latt/useraccounts.php on line 5
+[17-Nov-2012 15:58:07] PHP Fatal error:  Call to undefined function  getusers() in /home/roycelea/public_html/api/latt/useraccounts.php on line 7

@@ -1,5 +1,5 @@
 <?php
-include ("../../api/config.inc.php");
+include ("./api/config.inc.php");
 header("Content-Type: text/html; charset=ISO-8859-1");
 include ($oauth_file);
 error_reporting(0);
