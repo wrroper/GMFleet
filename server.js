@@ -63,6 +63,11 @@ app.post('/posttrip', function(req, res) {
             {
                 carid = 1;
             }
+            if(carid == 0)
+            {
+                carid = 1;
+            }
+
         });
 
         qry = "INSERT INTO JSON (JSON) VALUES (?)";
