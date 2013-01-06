@@ -35,7 +35,7 @@ app.post('/posttrip', function(req, res) {
     if(item) {
         var insert = "INSERT INTO Trips (CarId, TripDate, Odometer, OilLife, LFTirePressure, RFTirePressure, LRTirePressure, RRTirePressure, Fuel, Latitude, Longitude, TireCondition, TireComment, GlassCondition, GlassComment, BodyCondition, BodyComment, TripComment, UserId) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ? ,? ,?, ?)";
         var qry;
-        var carid = 99;
+        var carid = 0;
 
         qry = "INSERT INTO JSON (JSON) VALUES (?)";
 
