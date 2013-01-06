@@ -72,6 +72,14 @@ app.post('/posttrip', function(req, res) {
 
         });
     }
+    else
+    {
+        var qry = "INSERT INTO JSON (JSON) VALUES ('NO JSON')";
+
+        sql.query(conn_str, qry, function(err, results) {
+
+        }) ;
+    }
 });
 
 app.get('/user/:pin', function(req, res) {
