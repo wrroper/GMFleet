@@ -49,7 +49,7 @@ app.post('/posttrip', function(req, res) {
 app.get('/user/:pin', function(req, res) {
     var qry = "SELECT * FROM Users WHERE Pin = ?";
 
-    sql.query(conn_str, qry, req.params.pin, function (err, results) {
+    sql.query(conn_str, qry, [req.params.pin], function (err, results) {
         if(err) {
 
             res.send("Got Error " + err);
