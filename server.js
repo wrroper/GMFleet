@@ -33,6 +33,8 @@ app.get('/posttrip', function(req, res) {
     var item = req.body.item;
 
     res.writeHead(200, { 'Content-Type' : 'text/plain' } );
+    res.send(item);
+
     if(item) {
         var insert = "INSERT INTO Trips (CarId, TripDate, Odometer, OilLife, LFTirePressure, RFTirePressure, LRTirePressure, RRTirePressure, Fuel, Latitude, Longitude, TireCondition, TireComment, GlassCondition, GlassComment, BodyCondition, BodyComment, TripComment, UserId) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ? ,? ,?, ?)";
         var qry;
