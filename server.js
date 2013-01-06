@@ -21,17 +21,37 @@ app.get('/trips', function(req, res) {
 			return;
 		}
 		var response = "[";
+        var resArray = [];
+
 		for (var i = 0; i < results.length; i++) {
-			response += "{ Id : '" + results[i].ID + "', CarId : '" + results[i].CarId + "', TripDate : '" + results[i].TripDate + "', Odometer : '" + results[i].Odometer +
-                        "', OilLife : '" + results[i].OilLife + "', LFTirePressure : '" + results[i].LFTirePressure + "', RFTirePressure : '" + results[i].RFTirePressure +
-                        "', LRTirePressure : '" + results[i].LRTirePressure + "', RRTirePressure : '" + results[i].RRTirePressure + "', Fuel : '" + results[i].Fuel +
-                        "', Latitude : '" + results[i].Latitude + "', Longitude : '" + results[i].Longitude + "', TireCondition : '" + results[i].TireCondition +
-                        "', TireComment : '" + results[i].TireComment + "', GlassCondition : '" + results[i].GlassCondition + "', GlassComment : '" + results[i].GlassComment +
-                        "', BodyCondition : '" + results[i].BodyCondition + "', BodyComment : '" + results[i].BodyComment + "', TripComment : '" + results[i].TripComment +
-                        "', UserId : '" + results[i].UserId + "'}";
+            var myObject = new Object();
+
+
+			myObject.trip_id = results[i].ID;
+            myObject.car_id = results[i].CarId;
+            myObject.trip_date = results[i].TripDate;
+            myObject.odometer = results[i].Odometer;
+            myObject.engine_oil_life = results[i].OilLife;
+            myObject.tire_left_front_pressure = results[i].LFTirePressure;
+            myObject.tire_right_front_pressure  = results[i].RFTirePressure;
+            myObject.tire_left_rear_pressure = results[i].LRTirePressure;
+            myObject.tire_right_rear_pressure = results[i].RRTirePressure;
+            myObject.fuel_level = results[i].Fuel;
+            myObject.gps_lat = results[i].Latitude;
+            myObject.gps_long = results[i].Longitude;
+            myObject.tire_condition = results[i].TireCondition;
+            myObject.tire_comment = results[i].TireComment;
+            myObject.glass_condition = results[i].GlassCondition;
+            myObject.glass_condition = results[i].GlassComment;
+            myObject.body_condition = results[i].BodyCondition;
+            myObject.body_comment = results[i].BodyComment;
+            myObject.trip_comment = results[i].TripComment;
+            myObject.user_id = results[i].UserId;
+
+            resArray.push(myObject);
 		}
 		response += "]";
-		res.send(response);
+		res.send(JSON.stringify(resArray));
 		res.end("");
 	});
 });
