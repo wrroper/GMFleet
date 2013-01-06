@@ -11,8 +11,8 @@ function init() {
 		    crossDomain: true,
 		    success: function(responseData) {
 		    	var myObject = JSON.parse(responseData);
-		    	self.location="main.html?pin=" + txtUserID.getValue() + "&user_id=" + myObject.user_id;
-		    	//document.getElementById("signin").innerHTML = "main.html?pin=" + txtUserID.getValue() + "&user_id=" + myObject.user_id;
+		    	if (myObject.user_id)
+		    		self.location="main.html?pin=" + txtUserID.getValue() + "&user_id=" + myObject.user_id;
 		    },
 		    error: function (responseData, textStatus, errorThrown) {
 		        alert('GET failed.' + responseData);
