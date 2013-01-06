@@ -8,8 +8,23 @@ var app = express();
 app.use(express.bodyParser());
 app.use(app.router);
 
+var _ = require('underscore');
+app.register('.html', {
+    compile : function ( str, options) {
+        var compiled = require('underscore').template(str);
+
+        return functions(locals) {
+            return compiled(locals);
+        };
+    }
+})
+
 app.get('/att/:file', function(req, res, next) {
     staticdir(req, res, next);
+});
+
+app.get('/monitor', function(req, res) {
+
 });
 
 app.get('/trips', function(req, res) {
