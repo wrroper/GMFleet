@@ -5,7 +5,7 @@
     <ignored path="GMFleet.iws" />
     <ignored path=".idea/workspace.xml" />
     <file path="/Dummy.txt" changelist="8819f45c-8dfa-4bf5-9fa6-f2d4601398e0" time="1357455670686" ignored="false" />
-    <file path="/server.js" changelist="8819f45c-8dfa-4bf5-9fa6-f2d4601398e0" time="1357472637952" ignored="false" />
+    <file path="/server.js" changelist="8819f45c-8dfa-4bf5-9fa6-f2d4601398e0" time="1357472955335" ignored="false" />
     <option name="TRACKING_ENABLED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -67,7 +67,7 @@
       <file leaf-file-name="server.js" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/server.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="71" column="38" selection-start="3505" selection-end="3505" vertical-scroll-proportion="0.5947187">
+            <state line="35" column="283" selection-start="2143" selection-end="2143" vertical-scroll-proportion="0.16317016">
               <folding />
             </state>
           </provider>
@@ -360,7 +360,7 @@
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/server.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="71" column="38" selection-start="3505" selection-end="3505" vertical-scroll-proportion="0.5947187">
+        <state line="35" column="283" selection-start="2143" selection-end="2143" vertical-scroll-proportion="0.16317016">
           <folding />
         </state>
       </provider>
