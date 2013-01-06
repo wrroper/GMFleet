@@ -3,8 +3,8 @@ var conn_str = "Driver={SQL Server Native Client 10.0};Server=tcp:mj7i58or45.dat
 
 var express = require('express');
 var app = express();
-app.use(express.bodyParser());
 app.use(express.static(__dirname + '/att'));
+app.use(express.bodyParser());
 app.use(app.router);
 
 app.get('/trips', function(req, res) {
