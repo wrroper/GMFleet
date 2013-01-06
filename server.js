@@ -55,7 +55,7 @@ app.post('/posttrip', function(req, res) {
                 return;
             }
 
-            if(results.length > 0)
+            if(results.rowcount > 0)
             {
                 carid = results[0].ID;
             }
