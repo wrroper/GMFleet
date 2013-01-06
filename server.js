@@ -18,7 +18,7 @@ app.get('/trips', function(req, res) {
 		}
 		response += "]";
 		res.send(response);
-		res.end();
+		res.end("");
 	});
 });
 
