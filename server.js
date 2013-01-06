@@ -118,7 +118,7 @@ app.get('/user/:pin', function(req, res) {
         }
         var response = "";
         for (var i = 0; i < results.length; i++) {
-            response += "{ user_id : &quot" + results[i].Id + "&quot, pin : &quot" + results[i].Pin + "&quot, last_name : &quot" + results[i].LastName + "&quot, first_name : &quot" + results[i].FirstName + "&quot}";
+            response += "{ &quotuser_id&quot : &quot" + results[i].Id + "&quot, &quotpin&quot : &quot" + results[i].Pin + "&quot, &quotlast_name&quot : &quot" + results[i].LastName + "&quot, &quotfirst_name&quot : &quot" + results[i].FirstName + "&quot}";
         }
         response += "";
         res.send(response);
