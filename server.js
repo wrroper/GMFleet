@@ -13,11 +13,11 @@ app.register('.html', {
     compile : function ( str, options) {
         var compiled = require('underscore').template(str);
 
-        return functions(locals) {
+        return function(locals) {
             return compiled(locals);
         };
     }
-})
+});
 
 app.get('/att/:file', function(req, res, next) {
     staticdir(req, res, next);
@@ -87,7 +87,7 @@ app.post('/posttrip', function(req, res) {
         //    return;
         //}) ;
 
-        qry = "SELECT * FROM Cars WHERE VIN = ?"
+        qry = "SELECT * FROM Cars WHERE VIN = ?";
 
         sql.query(conn_str, qry, [item.vin_2_9], function (err, results) {
             if(err) {
