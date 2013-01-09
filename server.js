@@ -9,19 +9,20 @@ app.use(express.bodyParser());
 app.use(app.router);
 
 var _ = require('underscore');
-app.register('.html', {
-    compile : function ( str, options) {
-        var compiled = require('underscore').template(str);
-
-        return function(locals) {
-            return compiled(locals);
-        };
-    }
-});
-
 app.get('/att/:file', function(req, res, next) {
     staticdir(req, res, next);
 });
+
+
+//app.register('.html', {
+//    compile : function ( str, options) {
+//        var compiled = require('underscore').template(str);
+
+//        return function(locals) {
+//            return compiled(locals);
+//        };
+//    }
+//});
 
 app.get('/monitor', function(req, res) {
 
